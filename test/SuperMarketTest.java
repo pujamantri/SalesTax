@@ -20,8 +20,8 @@ public class SuperMarketTest {
 		cart.addToCart(1, Imported.LOCAL, "chocolate bar", Category.FOOD, 0.85);
 		superMarket.calculateBill(cart);
 		
-		Assert.assertEquals(1.5f, superMarket.getSalesTax(cart));
-		Assert.assertEquals(29.85f, superMarket.getTotalCost(cart));
+		Assert.assertEquals(1.5, superMarket.getSalesTax(cart));
+		Assert.assertEquals(29.83, superMarket.getTotalCost(cart));
 	}
 	
 	@Test
@@ -31,8 +31,8 @@ public class SuperMarketTest {
 		cart.addToCart(1, Imported.IMPORTED, "bottle of perfume", Category.OTHERS, 47.50);
 		superMarket.calculateBill(cart);
 		
-		Assert.assertEquals(7.65f, superMarket.getSalesTax(cart));
-		Assert.assertEquals(65.15f, superMarket.getTotalCost(cart));
+		Assert.assertEquals(7.63, superMarket.getSalesTax(cart));
+		Assert.assertEquals(65.13, superMarket.getTotalCost(cart));
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class SuperMarketTest {
 		cart.addToCart(1, Imported.IMPORTED, "box of chocolates", Category.FOOD, 11.25);
 		superMarket.calculateBill(cart);
 		
-		Assert.assertEquals(6.70f, superMarket.getSalesTax(cart));
-		Assert.assertEquals(74.700005f, superMarket.getTotalCost(cart));
+		Assert.assertEquals(6.66, superMarket.getSalesTax(cart));
+		Assert.assertEquals(74.64, superMarket.getTotalCost(cart));
 	}
 }
