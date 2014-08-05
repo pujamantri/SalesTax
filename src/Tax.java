@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 
 public abstract class Tax {
 	public static final Tax NOTAX = new NoTax();
@@ -7,5 +8,5 @@ public abstract class Tax {
 		this.tax = tax;
 	}
 	
-	public abstract double getTax(Product product);
+	public abstract BigDecimal getTax(Product product);
 }
