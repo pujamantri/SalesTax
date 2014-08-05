@@ -3,7 +3,7 @@ import java.util.List;
 
 public class BillCalculator {
 	private Tax tax = new ImportDuty(new SalesTax());
-	private static BigDecimal HUNDRED = new BigDecimal(100);
+	private final static BigDecimal HUNDRED = new BigDecimal(100);
 	
 	public void caclculateBill(ShoppingCart cart) {
 		List<Product> items = cart.getItems();
