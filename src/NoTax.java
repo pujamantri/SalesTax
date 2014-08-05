@@ -1,11 +1,12 @@
+import java.math.BigDecimal;
 
 public class NoTax extends Tax {
 	public NoTax() {
 		super(NOTAX);
 	}
 	@Override
-	public double getTax(Product product) {		
-		return 0;
+	public BigDecimal getTax(Product product) {		
+		return new BigDecimal(0);
 	}
 
 }
