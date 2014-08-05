@@ -1,5 +1,6 @@
+import java.math.BigDecimal;
 
-public class ImportDuty extends Tax{
+public class ImportDuty extends Tax {
 	public ImportDuty() {
 		super(NOTAX);
 	}
@@ -9,8 +10,8 @@ public class ImportDuty extends Tax{
 	}
 	
 	@Override
-	public double getTax(Product product) {
-		return tax.getTax(product) + product.getImported().getImportDuty();
+	public BigDecimal getTax(Product product) {
+		return tax.getTax(product).add(new BigDecimal(product.getImported().getImportDuty()));
 	}
 
 }
