@@ -1,4 +1,3 @@
-
 public class SuperMarket {
 	private BillCalculator billCalculator;
 	
@@ -14,11 +13,11 @@ public class SuperMarket {
 		billCalculator.caclculateBill(cart);
 	}
 	
-	public float getSalesTax(ShoppingCart cart) {
+	public double getSalesTax(ShoppingCart cart) {
 		return cart.getTax();
 	}
 	
-	public float getTotalCost(ShoppingCart cart) {
+	public double getTotalCost(ShoppingCart cart) {
 		return cart.getTotalCost();
 	}
 }
