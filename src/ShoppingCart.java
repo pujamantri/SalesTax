@@ -1,38 +1,36 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
 	private List<Product> items;
-	private float totalCost;
-	private float tax;
 	
 	public ShoppingCart(){
 		this.items = new ArrayList<Product>();
-		this.totalCost = 0;
-		this.tax = 0;
 	}
 	
 	public void addToCart(int count, Imported imported, String name, Category category, double price) {
-		items.add(new Product(count, imported, name, category, price));
+		items.add(new Product(count, imported, name, category, new BigDecimal(price)));
 	}
 	
 	public List<Product> getItems() {
 		return this.items;
 	}
 
-	public void setTotalCost(float totalCost) {
-		this.totalCost = totalCost;
-	}
-	
-	public float getTotalCost() {
-		return totalCost;
-	}
-
-	public void setTax(float tax) {
-		this.tax = tax;
+	public double getTotalCost() {
+		BigDecimal totalCost = new BigDecimal(0);
+		for (Product item : items) {
+			totalCost = totalCost.add(item.getCost()).add(item.getTax());
+		}
+		return totalCost.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 
-	public float getTax() {
-		return tax;
+
+	public double getTax() {
+		BigDecimal totalTax = new BigDecimal(0);
+		for (Product item : items) {
+			totalTax = totalTax.add(item.getTax());
+		}
+		return totalTax.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 }
