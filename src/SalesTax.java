@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 
 public class SalesTax extends Tax {
 	public SalesTax() {
@@ -9,8 +10,8 @@ public class SalesTax extends Tax {
 	}
 	
 	@Override
-	public double  getTax(Product product) {
-		return tax.getTax(product)+ product.getCategory().getSalesTax();
+	public BigDecimal  getTax(Product product) {
+		return tax.getTax(product).add(new BigDecimal(product.getCategory().getSalesTax()));
 	}
 
 }
